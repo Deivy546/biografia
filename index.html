@@ -1,0 +1,845 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#090b12">
+<title>Deivy Santiago | Mi historia</title>
+
+<style>
+:root {
+ --bg:#090b12;
+ --panel:#111522;
+ --panel2:#171d2d;
+ --text:#eef1f8;
+ --muted:#a7afc2;
+ --accent:#9b8cff;
+ --accent2:#55d6be;
+ --line:#293149;
+}
+
+* {
+ box-sizing:border-box;
+ margin:0;
+ padding:0;
+}
+
+html { scroll-behavior:smooth; }
+
+body {
+ background:
+ radial-gradient(ellipse at 15% 0%,#29234b,transparent 35%),
+ radial-gradient(ellipse at 90% 25%,#123b3a,transparent 27%),
+ var(--bg);
+ color:var(--text);
+ font-family:system-ui,Arial,sans-serif;
+ line-height:1.7;
+ transition:.3s;
+}
+
+a { color:inherit;text-decoration:none; }
+
+.wrap {
+ width:min(1100px,92%);
+ margin:auto;
+}
+
+/* NAVEGACIÓN */
+
+header {
+ position:sticky;
+ top:0;
+ z-index:10;
+ background:#090b12df;
+ backdrop-filter:blur(16px);
+ border-bottom:1px solid #ffffff12;
+}
+
+nav {
+ min-height:68px;
+ display:flex;
+ align-items:center;
+ justify-content:space-between;
+ gap:20px;
+}
+
+.brand {
+ font-weight:850;
+ letter-spacing:.12em;
+}
+
+.brand span { color:var(--accent); }
+
+.links {
+ display:flex;
+ gap:20px;
+}
+
+.links a {
+ color:var(--muted);
+ font-size:.9rem;
+}
+
+.links a:hover { color:var(--accent2); }
+
+.btn {
+ border:1px solid var(--line);
+ background:var(--panel2);
+ color:var(--text);
+ padding:10px 16px;
+ border-radius:12px;
+ cursor:pointer;
+ font-weight:650;
+}
+
+.btn:hover { border-color:var(--accent); }
+
+.primary {
+ background:linear-gradient(110deg,#7566dc,#398e88);
+ border:0;
+}
+
+/* INICIO */
+
+.hero {
+ padding:90px 0 70px;
+ display:grid;
+ grid-template-columns:1.35fr .65fr;
+ gap:45px;
+ align-items:center;
+}
+
+.eyebrow {
+ color:var(--accent2);
+ font-weight:750;
+ letter-spacing:.17em;
+ text-transform:uppercase;
+ font-size:.76rem;
+}
+
+h1 {
+ font-size:clamp(2.7rem,7vw,5.6rem);
+ line-height:.99;
+ letter-spacing:-.055em;
+ margin:16px 0 22px;
+}
+
+h1 span {
+ background:linear-gradient(100deg,var(--accent),var(--accent2));
+ -webkit-background-clip:text;
+ background-clip:text;
+ color:transparent;
+}
+
+.lead {
+ color:var(--muted);
+ font-size:1.1rem;
+ max-width:650px;
+}
+
+.hero-actions {
+ display:flex;
+ gap:12px;
+ flex-wrap:wrap;
+ margin-top:28px;
+}
+
+/* TARJETA PERSONAL */
+
+.profile-card {
+ background:linear-gradient(145deg,#1a2032,#101521);
+ border:1px solid var(--line);
+ border-radius:26px;
+ padding:28px;
+ box-shadow:0 18px 55px #0007;
+ transform:rotate(2deg);
+}
+
+.avatar {
+ height:220px;
+ border-radius:19px;
+ background:linear-gradient(135deg,#252345,#123d3a);
+ display:grid;
+ place-items:center;
+ font-size:5rem;
+}
+
+.profile-card h3 { margin:18px 0 2px; }
+
+.profile-card p {
+ color:var(--muted);
+ font-size:.9rem;
+}
+
+.stats {
+ display:grid;
+ grid-template-columns:repeat(3,1fr);
+ gap:10px;
+ margin-top:20px;
+}
+
+.stat {
+ background:#ffffff08;
+ padding:12px;
+ border-radius:13px;
+}
+
+.stat b {
+ display:block;
+ font-size:1.2rem;
+}
+
+.stat small { color:var(--muted); }
+
+/* SECCIONES */
+
+section {
+ padding:58px 0;
+ scroll-margin-top:80px;
+}
+
+.section-head { margin-bottom:25px; }
+
+.section-head h2 {
+ font-size:clamp(1.8rem,4vw,2.7rem);
+ line-height:1.1;
+ margin:10px 0 12px;
+ letter-spacing:-.035em;
+}
+
+.section-head p { color:var(--muted); }
+
+.grid {
+ display:grid;
+ grid-template-columns:repeat(2,1fr);
+ gap:17px;
+}
+
+.card {
+ background:linear-gradient(145deg,#151b2a,#10141f);
+ border:1px solid var(--line);
+ border-radius:20px;
+ padding:23px;
+ box-shadow:0 10px 35px #0003;
+}
+
+.card h3 { margin-bottom:9px; }
+
+.card p {
+ color:var(--muted);
+ margin-bottom:12px;
+}
+
+.icon {
+ font-size:1.5rem;
+ margin-bottom:12px;
+}
+
+/* FAMILIA */
+
+.family {
+ display:grid;
+ grid-template-columns:repeat(3,1fr);
+ gap:12px;
+}
+
+.person {
+ background:#ffffff08;
+ border:1px solid var(--line);
+ border-radius:15px;
+ padding:16px;
+}
+
+.person b { display:block; }
+
+.person small { color:var(--muted); }
+
+/* LÍNEA DE TIEMPO */
+
+.timeline {
+ position:relative;
+ margin:15px 0 0 8px;
+ padding-left:27px;
+ border-left:1px solid #5b568d;
+}
+
+.event {
+ position:relative;
+ padding:0 0 28px;
+}
+
+.event:before {
+ content:"";
+ position:absolute;
+ left:-34px;
+ top:8px;
+ width:13px;
+ height:13px;
+ border-radius:50%;
+ background:var(--accent2);
+ box-shadow:0 0 0 5px #55d6be20;
+}
+
+.event h3 { margin-bottom:5px; }
+
+.event p { color:var(--muted); }
+
+/* FRASE */
+
+.quote {
+ font-size:clamp(1.3rem,3vw,2rem);
+ line-height:1.35;
+ font-weight:700;
+ background:linear-gradient(120deg,#252047,#123936);
+ border:1px solid var(--line);
+ border-radius:23px;
+ padding:30px;
+}
+
+/* ANIMACIONES */
+
+.reveal {
+ opacity:0;
+ transform:translateY(18px);
+ transition:.7s ease;
+}
+
+.reveal.visible {
+ opacity:1;
+ transform:none;
+}
+
+/* PIE */
+
+footer {
+ border-top:1px solid var(--line);
+ padding:30px 0 45px;
+ color:var(--muted);
+ text-align:center;
+ font-size:.9rem;
+}
+
+.top {
+ position:fixed;
+ right:20px;
+ bottom:20px;
+ z-index:8;
+ opacity:0;
+ pointer-events:none;
+}
+
+.top.show {
+ opacity:1;
+ pointer-events:auto;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:760px) {
+
+ .hero {
+  grid-template-columns:1fr;
+  padding:65px 0 45px;
+ }
+
+ .profile-card { transform:none; }
+
+ .links { gap:10px; }
+
+ .links a { font-size:.78rem; }
+
+ .grid { grid-template-columns:1fr; }
+
+ .family { grid-template-columns:repeat(2,1fr); }
+
+}
+
+@media(max-width:430px) {
+
+ .links a { font-size:.72rem; }
+
+ .family { grid-template-columns:1fr 1fr; }
+
+ .stats { gap:6px; }
+
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<nav class="wrap">
+
+<a class="brand" href="#inicio">
+DEIVY <span>SG.</span>
+</a>
+
+<div class="links">
+<a href="#historia">Mi historia</a>
+<a href="#familia">Familia</a>
+<a href="#logros">Logros</a>
+<a href="#presente">Mi presente</a>
+</div>
+
+<button class="btn" id="themeBtn">☼</button>
+
+</nav>
+</header>
+
+<main>
+
+<!-- INICIO -->
+
+<section class="hero wrap" id="inicio">
+
+<div>
+
+<div class="eyebrow">
+Un poco de mí · Mi camino
+</div>
+
+<h1>
+Hola, soy<br>
+<span>Deivy Santiago.</span>
+</h1>
+
+<p class="lead">
+Tengo 17 años y esta es una pequeña parte de mi historia:
+de dónde vengo, lo que he superado, las personas que quiero
+y los sueños que sigo construyendo.
+</p>
+
+<div class="hero-actions">
+
+<a class="btn primary" href="#historia">
+Conoce mi historia ↓
+</a>
+
+<a class="btn" href="#logros">
+Mis logros ✦
+</a>
+
+</div>
+
+</div>
+
+<aside class="profile-card">
+
+<div class="avatar">✦</div>
+
+<h3>DEIVY SANTIAGO GUERRA BECERRA</h3>
+
+<p>Aprendiz de CNC · Soñador · Creador en proceso</p>
+
+<div class="stats">
+
+<div class="stat">
+<b>17</b>
+<small>años</small>
+</div>
+
+<div class="stat">
+<b>2025</b>
+<small>Un año especial</small>
+</div>
+
+<div class="stat">
+<b>∞</b>
+<small>Sueños</small>
+</div>
+
+</div>
+
+</aside>
+
+</section>
+
+<!-- MI HISTORIA -->
+
+<section class="wrap" id="historia">
+
+<div class="section-head reveal">
+
+<div class="eyebrow">01 / Mi historia</div>
+
+<h2>Una vida de aprendizajes y fortaleza.</h2>
+
+<p>
+Mi historia no ha sido perfecta, pero cada experiencia
+me ha enseñado algo y ha ayudado a formar la persona
+que soy hoy.
+</p>
+
+</div>
+
+<div class="card reveal">
+
+<p>
+Mi nombre es <strong>Deivy Santiago Guerra Becerra</strong>.
+Nací con labio y paladar hendido, una condición por la que
+desde muy pequeño he pasado por diferentes operaciones
+y procesos médicos. Ha sido parte de mi camino desde el
+comienzo y, aunque no siempre ha sido fácil, también me ha
+enseñado a tener paciencia, valentía y a seguir adelante.
+</p>
+
+<p>
+Durante mi infancia y mi etapa escolar viví momentos
+difíciles. Recibí burlas, bullying y situaciones de
+discriminación en distintos lugares. Hubo experiencias
+que me hicieron sentir mal, pero no quiero que esas
+situaciones definan quién soy. Son capítulos de mi vida,
+no el límite de lo que puedo llegar a ser.
+</p>
+
+<p>
+También he tenido la fortuna de conocer personas que
+han permanecido a mi lado desde que era pequeño.
+Algunas amistades siguen presentes hasta hoy, y eso es
+algo que valoro muchísimo.
+</p>
+
+</div>
+
+</section>
+
+<!-- FAMILIA -->
+
+<section class="wrap" id="familia">
+
+<div class="section-head reveal">
+
+<div class="eyebrow">02 / Mis raíces</div>
+
+<h2>Mi familia y las personas importantes.</h2>
+
+<p>
+Mi familia forma parte de mi historia y de lo que soy.
+Cada uno ocupa un lugar especial en mi vida.
+</p>
+
+</div>
+
+<div class="family reveal">
+
+<div class="person">
+<b>José Antonio</b>
+<small>Mi padre</small>
+</div>
+
+<div class="person">
+<b>Luz Noreima</b>
+<small>Mi madre</small>
+</div>
+
+<div class="person">
+<b>Jefferson Andrey</b>
+<small>Mi hermano mayor</small>
+</div>
+
+<div class="person">
+<b>Brayam Stiven</b>
+<small>Mi hermano menor</small>
+</div>
+
+<div class="person">
+<b>Gisel</b>
+<small>Mi hermana menor, por parte de mi padre</small>
+</div>
+
+</div>
+
+<div class="card reveal" style="margin-top:17px">
+
+<h3>Amistades que siguen conmigo 🤝</h3>
+
+<p>
+Edwin, Elias, Jeffey, Fino.
+Son amistades que vienen desde mi niñez y que, de una u otra
+manera, continúan siendo parte de mi vida.
+Aprecio mucho esa historia compartida.
+</p>
+
+</div>
+
+</section>
+
+<!-- LOGROS -->
+
+<section class="wrap" id="logros">
+
+<div class="section-head reveal">
+
+<div class="eyebrow">03 / Momentos que me marcaron</div>
+
+<h2>Pequeños y grandes logros.</h2>
+
+<p>
+Hay experiencias que me recuerdan que sí puedo avanzar,
+aprender cosas nuevas y acercarme a mis metas.
+</p>
+
+</div>
+
+<div class="timeline reveal">
+
+<article class="event">
+
+<h3>Un videojuego hecho por mí 🎮</h3>
+
+<p>
+Creé un videojuego sencillo inspirado en la Biblia.
+Puede parecer un proyecto pequeño, pero para mí representa
+creatividad, esfuerzo y la satisfacción de ver una idea
+convertida en algo real.
+</p>
+
+</article>
+
+<article class="event">
+
+<h3>Un torneo de robótica 🤖</h3>
+
+<p>
+Tuve la oportunidad de participar en un torneo de robótica,
+una experiencia que me acercó al mundo de la tecnología
+y me permitió aprender haciendo.
+</p>
+
+</article>
+
+<article class="event">
+
+<h3>Bogotá, 2025 ✈️</h3>
+
+<p>
+En 2025 viajé a Bogotá en avión y conocí las oficinas de
+Microsoft. Fue una experiencia muy especial y uno de esos
+recuerdos que guardo con orgullo.
+</p>
+
+</article>
+
+<article class="event">
+
+<h3>Una nueva etapa de estudio ⚙️</h3>
+
+<p>
+Terminé mis estudios escolares y comencé una nueva etapa
+de formación. Actualmente estudio CNC, Producción de
+Componentes Mecánicos con Control Numérico Computarizado,
+un área que me encanta y en la que quiero seguir creciendo.
+</p>
+
+</article>
+
+</div>
+
+</section>
+
+<!-- PRESENTE -->
+
+<section class="wrap" id="presente">
+
+<div class="section-head reveal">
+
+<div class="eyebrow">04 / Quién soy hoy</div>
+
+<h2>Sensible, soñador y en construcción.</h2>
+
+</div>
+
+<div class="grid">
+
+<div class="card reveal">
+
+<div class="icon">💜</div>
+
+<h3>Mi forma de sentir</h3>
+
+<p>
+Soy una persona sensible y emocional. A veces lloro
+con facilidad y suelo encariñarme mucho con las personas
+que me rodean. Cuando alguien es importante para mí,
+lo quiero de verdad y valoro su presencia.
+</p>
+
+</div>
+
+<div class="card reveal">
+
+<div class="icon">🛠️</div>
+
+<h3>Lo que me apasiona</h3>
+
+<p>
+Me gusta aprender, crear y explorar la tecnología.
+Desde los videojuegos hasta la robótica y el mundo del CNC,
+disfruto descubrir cómo funcionan las cosas y convertir
+mis ideas en proyectos.
+</p>
+
+</div>
+
+<div class="card reveal">
+
+<div class="icon">❤️</div>
+
+<h3>El amor y los afectos</h3>
+
+<p>
+Actualmente estoy enamorado y viviendo una etapa en la que
+el cariño también me inspira a crecer. Quiero aprender
+a ser mejor persona, cuidar a quienes quiero y demostrar
+con acciones lo que siento.
+</p>
+
+</div>
+
+<div class="card reveal">
+
+<div class="icon">🌱</div>
+
+<h3>Mis sueños</h3>
+
+<p>
+Sigo trabajando poco a poco por mis metas. Sé que todavía
+tengo mucho por aprender y mejorar, pero quiero aprovechar
+las oportunidades, construir mi futuro y sentir orgullo
+del camino recorrido.
+</p>
+
+</div>
+
+</div>
+
+<div class="quote reveal" style="margin-top:18px">
+
+“No soy solamente lo que he vivido;
+también soy todo lo que estoy aprendiendo,
+construyendo y soñando llegar a ser.”
+
+</div>
+
+<div class="card reveal" style="margin-top:18px">
+
+<h3>Gracias por ser parte de mi camino. ✨</h3>
+
+<p>
+Hoy miro mi vida con agradecimiento. Agradezco las
+oportunidades, las personas que me acompañan, las experiencias
+buenas y las difíciles, porque todas forman parte de mi historia.
+No tengo todo resuelto, pero sigo avanzando, enamorado de la
+vida y con muchos sueños por cumplir.
+</p>
+
+</div>
+
+</section>
+
+</main>
+
+<footer>
+
+<div class="wrap">
+
+Hecho con dedicación por Deivy Santiago · Mi historia continúa…
+
+<br>
+
+<small>
+© <span id="year"></span> · Blog personal
+</small>
+
+</div>
+
+</footer>
+
+<button class="btn top" id="topBtn">↑</button>
+
+<script>
+
+// ANIMACIONES AL DESPLAZARSE
+
+const observer = new IntersectionObserver(entries => {
+
+ entries.forEach(entry => {
+
+  if(entry.isIntersecting) {
+
+   entry.target.classList.add("visible");
+
+   observer.unobserve(entry.target);
+
+  }
+
+ });
+
+}, {threshold:0.12});
+
+document.querySelectorAll(".reveal").forEach(element => {
+ observer.observe(element);
+});
+
+// BOTÓN VOLVER ARRIBA
+
+const topBtn = document.getElementById("topBtn");
+
+window.addEventListener("scroll", () => {
+
+ topBtn.classList.toggle("show", window.scrollY > 500);
+
+});
+
+topBtn.addEventListener("click", () => {
+
+ window.scrollTo({
+  top:0,
+  behavior:"smooth"
+ });
+
+});
+
+// AÑO AUTOMÁTICO
+
+document.getElementById("year").textContent =
+new Date().getFullYear();
+
+// CAMBIAR TEMA
+
+document.getElementById("themeBtn").addEventListener("click", () => {
+
+ const light = document.body.classList.toggle("light");
+
+ const values = light ? {
+
+  "--bg":"#eef0f8",
+  "--panel":"#ffffff",
+  "--panel2":"#e4e7f2",
+  "--text":"#171a28",
+  "--muted":"#596176",
+  "--line":"#cbd0df"
+
+ } : {
+
+  "--bg":"#090b12",
+  "--panel":"#111522",
+  "--panel2":"#171d2d",
+  "--text":"#eef1f8",
+  "--muted":"#a7afc2",
+  "--line":"#293149"
+
+ };
+
+ Object.entries(values).forEach(([key,value]) => {
+  document.documentElement.style.setProperty(key,value);
+ });
+
+});
+
+</script>
+
+</body>
+</html>
